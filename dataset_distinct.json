@@ -57,7 +57,7 @@
   },
   {
     "Input": " square each element in the 'score' column.",
-    "Output": "df['score'] = df['score'].apply(lambda x: x**2)"
+    "Output": "df['score'] = df['score']**2"
   },
   {
     "Input": " cube each element in the 'score' column.",
@@ -229,7 +229,7 @@
   },
   {
     "Input": "calculate the square of the values in the column 'column1'",
-    "Output": "df['column1_squared'] = df.apply(lambda row: row['column1'] * row['column1'], axis=1)"
+    "Output": "df['column1_squared'] = df.apply(lambda row: row['column1'] ** 2, axis=1)"
   },
   {
     "Input": "Apply log to the 'price' column of dataset.",
@@ -270,5 +270,13 @@
   {
     "Input":"ranked encoding of column 'Temperature' according to 'Low', 'Medium', 'High'",
     "Output":"encoder = OrdinalEncoder(categories=[['Low', 'Medium', 'High']])\ndf['Temperature']=encoder.fit_transform(df[['Temperature']])"
+  },
+  {
+    "Input":"convert 'Temperature' column using C = (F-32)*5.0/9.0",
+    "Output":"df['Temperature_C'] = df['Temperature_F'].apply(lambda x: (x-32)*5.0/9.0)"
+  },
+  {
+    "Input":"Combine 'First_Name' and 'Last_Name' into full name",
+    "Output":"df['Full_Name'] = df.apply(lambda row: f'''{row['First_Name']} {row['Last_Name']}''', axis=1)"
   }
 ]
