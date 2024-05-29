@@ -1,0 +1,274 @@
+[
+  {
+    "Input": "drop row with null values in a dataset",
+    "Output": "df.dropna(inplace=True)"
+  },
+  {
+    "Input": "drop column gender in a dataset",
+    "Output": "df.drop(['gender'], axis=1, inplace=True)"
+  },
+  {
+    "Input": "fill missing values with 0",
+    "Output": "df.fillna(0,inplace=True)"
+  },
+  {
+    "Input": "filter the data of column marks with marks greater than 10",
+    "Output": "df = df[df['marks']>10]"
+  },
+  {
+    "Input": "filter the data of column marks with marks greater than 10 using query",
+    "Output": "df =df.query('marks'>10)"
+  },
+  {
+    "Input": "rename a column 'name' to 'first_name'.",
+    "Output": "df.rename(columns={'name':'first_name'},inplace=True)"
+  },
+  {
+    "Input": "delete duplicate data.",
+    "Output": "df.drop_duplicates(inplace=True)"
+  },
+  {
+    "Input": "Create a new column mean and in this store the value of mean of column 'marks1','marks2','marks3'",
+    "Output": "df['mean'] = df[['marks1', 'marks2', 'marks3']].mean(axis=1)"
+  },
+  {
+    "Input": "Create a new column median and in this store the value of median of column 'marks1','marks2','marks3'",
+    "Output": "df['median'] = df[['marks1', 'marks2', 'marks3']].median(axis=1)"
+  },
+  {
+    "Input": "Create a new column mode and in this store the value of mode of column 'marks1','marks2','marks3'",
+    "Output": "df['mode'] = df[['marks1', 'marks2', 'marks3']].mode(axis=1)"
+  },
+  {
+    "Input": "create a new column 'status' based on the condition that marks greater than 50 is 'Pass' else 'Fail'.",
+    "Output": "df['status'] = df['marks'].apply(lambda x: 'Pass' if x > 50 else 'Fail')"
+  },
+  {
+    "Input": "calculate a rolling mean with a window size of 5 for the 'temperature' column.",
+    "Output": "df['temperature_rolling'] = df['temperature'].rolling(window=5).mean()"
+  },
+  {
+    "Input": "add a new column 'difference' that is the difference between 'column1' and 'column2'.",
+    "Output": "df['difference'] = df['column1'] - df['column2']"
+  },
+  {
+    "Input": "select rows where the 'country' column is equal to 'USA'.",
+    "Output": "df = df[df['country'] == 'USA']"
+  },
+  {
+    "Input": " square each element in the 'score' column.",
+    "Output": "df['score'] = df['score'].apply(lambda x: x**2)"
+  },
+  {
+    "Input": " cube each element in the 'score' column.",
+    "Output": "df['score'] = df['score']**3"
+  },
+  {
+    "Input": "extract the month from the 'date' column.",
+    "Output": "df['month'] = pd.to_datetime(df['date']).dt.month"
+  },
+  {
+    "Input": "extract the year from the 'date' column.",
+    "Output": "df['year'] = pd.to_datetime(df['date']).dt.year"
+  },
+  {
+    "Input": "extract the day from the 'date' column.",
+    "Output": "df['day'] = pd.to_datetime(df['date']).dt.day"
+  },
+  {
+    "Input": "normalize the 'sales' column.",
+    "Output": "df['sales_normalized'] = (df['sales'] - df['sales'].min()) / (df['sales'].max() - df['sales'].min())"
+  },
+  {
+    "Input": "replace values greater than 100 in 'column' with 100.",
+    "Output": "df['column'] = df['column'].apply(lambda x: 100 if x > 100 else x)"
+  },
+  {
+    "Input": "create a cumulative sum column for 'sales'.",
+    "Output": "df['sales_cumsum'] = df['sales'].cumsum()"
+  },
+  {
+    "Input": "encode the 'category' column into categorical variable .",
+    "Output": "df['category'] = pd.factorize(df['category'])[0]"
+  },
+  {
+    "Input": "Add a new column total = price * quantity",
+    "Output": "df=df.eval('total = price * quantity')"
+  },
+  {
+    "Input": "Add a new column total = price + quantity",
+    "Output": "df=df.eval('total = price + quantity')"
+  },
+  {
+    "Input": "Add a new column total = price - quantity",
+    "Output": "df=df.eval('total = price - quantity')"
+  },
+  {
+    "Input": "Add a new column total = price / quantity",
+    "Output": "df=df.eval('total = price / quantity')"
+  },
+  {
+    "Input": "Add a new column total = price ** quantity",
+    "Output": "df=df.eval('total = price ** quantity')"
+  },
+  {
+    "Input": "select rows where 'age' is greater than 30.",
+    "Output": "df = df[df['age'] > 30]"
+  },
+  {
+    "Input": "filter rows where 'city' is in a list of cities 'New York', 'Los Angeles'.",
+    "Output": "df=df[df['city'].isin(['New York', 'Los Angeles'])]"
+  },
+  {
+    "Input": "add two columns 'price' and 'tax' and store the result in 'total'.",
+    "Output": "df['total'] = df['price'] + df['tax']"
+  },
+  {
+    "Input": "multiply column 'price' by 1.1",
+    "Output": "df['price'] = df['price']*1.1"
+  },
+  {
+    "Input": "map values in 'category' column using {'A': 1, 'B': 2}.",
+    "Output": "df['category'] = df['category'].map({'A': 1, 'B': 2})"
+  },
+  {
+    "Input": "aggregate the 'sales' column by 'month'.",
+    "Output": "df.groupby('month')['sales'].aggregate('sum')"
+  },
+  {
+    "Input": "transform the 'sales' column by subtracting the mean.",
+    "Output": "df['sales'] = df['sales'].transform(lambda x: x - x.mean())"
+  },
+  {
+    "Input": "assign a new column 'discount' with a value of 0.1.",
+    "Output": "df['discount']=0.1"
+  },
+  {
+    "Input": "Expand a list column 'tags' into separate rows.",
+    "Output": "df = df.explode('tags')"
+  },
+  {
+    "Input": "replace values in 'category' column using 'A': 'Alpha', 'B': 'Beta'.",
+    "Output": "df['category'].replace({'A': 'Alpha', 'B': 'Beta'}, inplace=True)"
+  },
+  {
+    "Input": "forward fill missing values in the dataset",
+    "Output": "df.ffill(inplace=True)"
+  },
+  {
+    "Input": "interpolate missing values in the dataset",
+    "Output": "df.interpolate(inplace=True)"
+  },
+  {
+    "Input": "fill missing values with 0.",
+    "Output": "df.fillna(0, inplace=True)"
+  },
+  {
+    "Input": "backfill missing values in the dataset",
+    "Output": "df.bfill(inplace=True)"
+  },
+  {
+    "Input": "filter the dataset for rows where 'age' is not null.",
+    "Output": "df = df[df['age'].notnull()]"
+  },
+  {
+    "Input": "Divide the values in the 'age' column of the dataset 'df' into 5 equal-width bins and assign them to a new column called 'age_group'.",
+    "Output": "df['age_group'] = pd.cut(df['age'], bins=5)"
+  },
+  {
+    "Input": "Create one-hot encoding for the 'City' column.",
+    "Output": "df = pd.get_dummies(df, columns=['City'], prefix='City')"
+  },
+  {
+    "Input": "Convert categorical columns into one-hot encoding",
+    "Output": "df = pd.get_dummies(df)"
+  },
+  {
+    "Input": "Factorize the 'color' column and create a new column named 'color_code' with the encoded values.",
+    "Output": "df['color_code'] = pd.factorize(df['color'])[0]"
+  },
+  {
+    "Input": "Select rows where 'col1' is equal to 'value1' and 'col2' is greater than 'value2'.",
+    "Output": "df.loc[(df['col1'] == 'value1') & (df['col2'] > 'value2')]"
+  },
+  {
+    "Input": "Keep only rows where the 'column1' column values are in the list ['value1', 'value2', 'value3'].",
+    "Output": "df = df[df['column1'].isin(['value1', 'value2', 'value3'])]"
+  },
+  {
+    "Input": "Filter dataset to keep only rows where the column 'age' is greater than 30.",
+    "Output": "df = df.query('age > 30')"
+  },
+  {
+    "Input": "Add the values of the 'A' and 'B' columns in dataset and store the result in a new column named 'C'",
+    "Output": "df['C'] = df['A'] + df['B']"
+  },
+  {
+    "Input": "Multiply the column 'A' by 2",
+    "Output": "df['A'] = df['A'] * 2"
+  },
+  {
+    "Input": "Divide the column 'col1' by 2 and assign the result to a new column called 'col2'.",
+    "Output": "df['col2'] = df['col1'] / 2"
+  },
+  {
+    "Input": "Select rows from the dataset where the values in column 'A' are greater than 5 and the values in column 'B' are less than 10.",
+    "Output": "df[(df['A'] > 5) & (df['B'] < 10)]"
+  },
+  {
+    "Input": "Apply the logical operator 'or' to two columns in the dataset, 'column1' and 'column2', and store the result in a new column named 'column3'.",
+    "Output": "df['column3'] = df['column1'] | df['column2']"
+  },
+  {
+    "Input": "I want to filter dataset and keep rows where the column 'Age' is not equal to 25.",
+    "Output": "df = df[df['Age'] != 25]"
+  },
+  {
+    "Input": "Combine the columns 'A' and 'B' from the dataset, using the '+' operator, and store the result in a new column named 'C'.",
+    "Output": "df['C'] = df['A'].combine(df['B'], lambda a, b: a + b)"
+  },
+  {
+    "Input": "calculate the square of the values in the column 'column1'",
+    "Output": "df['column1_squared'] = df.apply(lambda row: row['column1'] * row['column1'], axis=1)"
+  },
+  {
+    "Input": "Apply log to the 'price' column of dataset.",
+    "Output": "df['price'] = np.log(df['price'])"
+  },
+  {
+    "Input": "Create a new column named 'squared_value' in dataset, where each value is the square of the corresponding value in the 'value' column.",
+    "Output": "df = df.assign(squared_value=df['value'] ** 2)"
+  },
+  {
+    "Input": "Expand the column 'items' in dataset, which contains lists, so that each element in the list becomes a separate row.",
+    "Output": "df = df.explode('items')"
+  },
+  {
+    "Input": "Replace all values in the column 'Price' that are equal to 0 with the value 'Missing'",
+    "Output": "df['Price'] = df['Price'].replace(0, 'Missing')"
+  },
+  {
+    "Input": "Filter the dataset to keep only rows where the 'Age' column is greater than 30.",
+    "Output": "df.filter(items=['Age'], axis=0).query('Age > 30')"
+  },
+  {
+    "Input": "Split the value of column 'days' separated by space.",
+    "Output": "split_df=df['days'].str.split(' ',expand=True)\nsplit_df.columns=['days'+'_'+str(i) for i in range(split_df.shape[1])]\ndf=pd.concat([df,split_df],axis=1)"
+  },
+  {
+    "Input": "create a new column by joining columns 'name' and 'id' such that values are concatenated.",
+    "Output": "join_df=pd.Series(df.agg(lambda x: f'''{x['name']}{x['id']}''',axis=1),name='name'+'id')\ndf=pd.concat([df,join_df],axis=1)"
+  },
+  {
+    "Input":"Standardise the 'Height' column",
+    "Output":"scaler = StandardScaler()\ndf['Height_standardized'] = scaler.fit_transform(df[['Height']])"
+  },
+  {
+    "Input":"Scale the 'Height' column by its max value",
+    "Output":"scaler = MaxAbsScaler()\ndf['Height_scale'] = scaler.fit_transform(df[['Height']])"
+  },
+  {
+    "Input":"ranked encoding of column 'Temperature' according to 'Low', 'Medium', 'High'",
+    "Output":"encoder = OrdinalEncoder(categories=[['Low', 'Medium', 'High']])\ndf['Temperature']=encoder.fit_transform(df[['Temperature']])"
+  }
+]
